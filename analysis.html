@@ -11,24 +11,21 @@
 </head>
 <body class="dash-body">
 
+<!-- ══════════════════════════
+     NAVBAR
+══════════════════════════ -->
+<header class="topnav">
+  <div class="topnav-inner">
+    <a href="index.html" class="topnav-back">&larr; Back</a>
+
+    <a href="index.html" class="topnav-logo">
+      <span class="logo-mark">D</span>
+      <span class="topnav-name">DentScan <em>AI</em></span>
+    </a>
+  </div>
+</header>
+
 <div class="dash-shell">
-
-  <!-- ══════════════════════════
-       SIDEBAR
-  ══════════════════════════ -->
-  <aside class="sidebar">
-    <a href="index.html" class="sidebar-logo"><span class="logo-mark">D</span> DentScan AI</a>
-
-    <nav class="sidebar-nav">
-      <button class="side-btn active" data-mode="upload">📁 Upload Image</button>
-      <button class="side-btn" data-mode="camera">📷 Live Camera</button>
-    </nav>
-
-    <div class="sidebar-note">
-      <div class="note-title">Backend status</div>
-      <div class="note-body" id="backendStatus">Checking connection to localhost:5000…</div>
-    </div>
-  </aside>
 
   <!-- ══════════════════════════
        MAIN
@@ -39,6 +36,7 @@
       <div>
         <h1>Vehicle Damage Analysis</h1>
         <p>Upload a photo or use your camera to check for dents and scratches.</p>
+        <p class="backend-status-line" id="backendStatus">Checking connection…</p>
       </div>
     </div>
 

@@ -19,6 +19,7 @@
   box-sizing:border-box;
 }
 .topnav-logo{
+  margin-left:auto;
   display:flex;align-items:center;gap:10px;
   text-decoration:none;color:var(--ink);
   flex-shrink:0;
@@ -36,7 +37,6 @@
 .topnav-name em{font-style:normal;color:var(--signal)}
 
 .topnav-back{
-  margin-left:auto;
   display:inline-flex;align-items:center;gap:6px;
   text-decoration:none;font-family:var(--body);font-size:13.5px;font-weight:700;
   color:var(--steel);padding:9px 16px;border-radius:9px;border:1px solid var(--line2);
@@ -54,73 +54,12 @@
   .logo-mark{width:28px;height:28px;font-size:13px}
 }
 
-.dash-shell{display:flex;min-height:100vh;align-items:stretch}
+.dash-shell{display:block;min-height:100vh}
 
-/* ── SIDEBAR ── */
-.sidebar{
-  flex:0 0 250px;
-  width:250px;
-  min-width:250px;
-  max-width:250px;
-  min-height:100vh;
-  background:var(--paper);border-right:1px solid var(--line);
-  padding:24px 18px;display:flex;flex-direction:column;gap:22px;
-  overflow-x:hidden;
-  box-sizing:border-box;
+/* ── BACKEND STATUS LINE (replaces old sidebar note) ── */
+.backend-status-line{
+  font-size:12.5px;color:var(--steel-soft);margin-top:8px;
 }
-.sidebar *{max-width:100%;box-sizing:border-box}
-.sidebar-logo{
-  font-family:var(--display);font-size:19px;font-weight:800;
-  display:flex;align-items:center;gap:9px;color:var(--ink);padding:0 6px;
-  width:100%;text-decoration:none;
-}
-.sidebar-logo .logo-mark{
-  width:26px;height:26px;background:var(--ink);border-radius:7px;
-  display:inline-flex;align-items:center;justify-content:center;
-  font-size:13px;font-weight:900;color:var(--paper);font-family:var(--display);
-  flex-shrink:0;
-}
-
-/* Reset the global <nav> element rules from style.css (fixed top bar, grid layout)
-   which would otherwise also apply to this sidebar's <nav> element */
-.sidebar-nav,
-.sidebar nav,
-nav.sidebar-nav{
-  position:static !important;
-  top:auto !important;
-  left:auto !important;
-  right:auto !important;
-  z-index:auto !important;
-  height:auto !important;
-  padding:0 !important;
-  margin:0 !important;
-  border:none !important;
-  background:none !important;
-  backdrop-filter:none !important;
-  box-shadow:none !important;
-  display:flex !important;
-  flex-direction:column !important;
-  align-items:stretch !important;
-  justify-content:flex-start !important;
-  gap:6px !important;
-  width:100% !important;
-}
-.sidebar-nav button.side-btn{
-  display:flex;align-items:center;gap:10px;
-  width:100%;max-width:100%;box-sizing:border-box;
-  text-align:left;padding:11px 14px;border-radius:10px;border:1px solid transparent;
-  background:transparent;color:var(--steel);font-family:var(--body);font-size:14px;
-  font-weight:600;cursor:pointer;transition:all 0.15s;
-}
-.side-btn:hover{background:var(--paper2);color:var(--ink)}
-.side-btn.active{background:var(--ink);color:var(--paper)}
-
-.sidebar-note{
-  background:var(--paper2);border:1px solid var(--line);border-radius:12px;
-  padding:14px;width:100%;box-sizing:border-box;margin-top:auto;
-}
-.sidebar-note .note-title{font-size:12.5px;font-weight:700;color:var(--ink);margin-bottom:4px}
-.sidebar-note .note-body{font-size:12px;color:var(--steel-soft);line-height:1.55}
 
 /* ── MAIN ── */
 .dash-main{flex:1 1 auto;min-width:0;padding:32px 28px;overflow-y:auto;box-sizing:border-box}
@@ -274,11 +213,6 @@ nav.sidebar-nav{
 
 /* RESPONSIVE */
 @media(max-width:900px){
-  .dash-shell{flex-direction:column}
-  .sidebar{position:relative;height:auto;width:100%;max-width:100%;flex:0 0 auto;flex-direction:row;flex-wrap:wrap;padding:16px}
-  .sidebar-nav{flex-direction:row;flex-wrap:wrap;width:auto}
-  .side-btn{width:auto}
-  .sidebar-note{display:none}
   .stat-grid{grid-template-columns:1fr 1fr}
   .dash-main{padding:24px 18px}
 }
