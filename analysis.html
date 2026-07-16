@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DentScan AI — Analysis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/analysis.css">
+</head>
+<body class="dash-body">
+
+<div class="dash-shell">
+
+  <!-- ══════════════════════════
+       SIDEBAR
+  ══════════════════════════ -->
+  <aside class="sidebar">
+    <a href="index.html" class="sidebar-logo"><span class="logo-mark">D</span> DentScan AI</a>
+
+    <nav class="sidebar-nav">
+      <button class="side-btn active" data-mode="upload">📁 Upload Image</button>
+      <button class="side-btn" data-mode="camera">📷 Live Camera</button>
+    </nav>
+
+    <div class="sidebar-note">
+      <div class="note-title">Backend status</div>
+      <div class="note-body" id="backendStatus">Checking connection to localhost:5000…</div>
+    </div>
+  </aside>
+
+  <!-- ══════════════════════════
+       MAIN
+  ══════════════════════════ -->
+  <main class="dash-main">
+
+    <div class="dash-main-header">
+      <div>
+        <h1>Vehicle Damage Analysis</h1>
+        <p>Upload a photo or use your camera to check for dents and scratches.</p>
+      </div>
+    </div>
+
+    <!-- STAT CARDS -->
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-label">Scans This Session</div>
+        <div class="stat-value" id="statScans">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Damaged Detected</div>
+        <div class="stat-value danger-text" id="statDamaged">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Normal Detected</div>
+        <div class="stat-value ok-text" id="statNormal">0</div>
+      </div>
+    </div>
+
+    <!-- MODULE PANEL -->
+    <div class="module-panel">
+
+      <div class="mode-toggle">
+        <button class="mode-btn active" data-mode="upload">📁 Upload</button>
+        <button class="mode-btn" data-mode="camera">📷 Live Camera</button>
+      </div>
+
+      <!-- UPLOAD MODE -->
+      <div id="uploadPanel">
+        <div class="upload-zone" id="uploadZone">
+          <div class="upload-icon">⬆</div>
+          <h4>Drag &amp; drop a photo here</h4>
+          <p>or click to browse — JPG, PNG</p>
+          <input type="file" id="fileInput" accept="image/*">
+        </div>
+
+        <div class="preview-frame" id="uploadPreviewFrame" style="display:none;margin-top:18px">
+          <img id="uploadPreviewImg" alt="Selected vehicle photo">
+        </div>
+
+        <div style="margin-top:18px;display:flex;gap:10px">
+          <button class="btn-dark" id="analyzeUploadBtn" disabled>Analyze Photo</button>
+          <button class="btn-outline" id="clearUploadBtn" style="display:none">Choose Different Photo</button>
+        </div>
+      </div>
+
+      <!-- CAMERA MODE -->
+      <div id="cameraPanel" style="display:none">
+        <div class="camera-frame" id="cameraFrame">
+          <div class="camera-placeholder" id="cameraPlaceholder">
+            Camera is off.<br>Click "Enable Camera" to start.
+          </div>
+          <video id="cameraVideo" autoplay playsinline style="display:none"></video>
+          <div class="camera-corner tl"></div>
+          <div class="camera-corner tr"></div>
+          <div class="camera-corner bl"></div>
+          <div class="camera-corner br"></div>
+        </div>
+        <canvas id="captureCanvas" style="display:none"></canvas>
+
+        <div class="camera-controls">
+          <div style="display:flex;gap:10px">
+            <button class="btn-dark" id="enableCameraBtn">Enable Camera</button>
+            <button class="btn-outline" id="captureBtn" style="display:none">Capture &amp; Analyze</button>
+          </div>
+          <label class="live-toggle">
+            <div class="switch">
+              <input type="checkbox" id="liveScanToggle">
+              <span class="switch-track"></span>
+            </div>
+            Auto-scan every 2s
+          </label>
+        </div>
+      </div>
+
+      <!-- RESULT PANEL (shared, injected by JS) -->
+      <div id="resultPanel"></div>
+
+      <!-- SCAN HISTORY -->
+      <div style="margin-top:32px">
+        <div class="module-header">
+          <h3>Scan History</h3>
+        </div>
+        <div id="historyList">
+          <div class="dash-empty">No scans yet — analyze a photo or camera frame to see results here.</div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+</div>
+
+<!-- Reusable message banner -->
+<div class="toast" id="toast"></div>
+
+<script src="js/jspdf.umd.min.js"></script>
+<script src="js/report-generator.js"></script>
+<script src="js/analysis.js"></script>
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="DentScan AI — Instantly detect dents and scratches on a vehicle using your camera or an uploaded photo, powered by a CNN.">
+<title>DentScan AI — Vehicle Damage Detection</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+<!-- ══════════════════════════
+     NAVBAR
+══════════════════════════ -->
+<nav>
+  <a href="index.html" class="nav-logo"><span class="logo-mark">D</span> DentScan AI</a>
+  <ul class="nav-links">
+    <li><a href="#features">Features</a></li>
+    <li><a href="#how">How it works</a></li>
+    <li><a href="#accuracy">Model</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="nav-cta">
+      <a href="analysis.html" class="btn-primary">Start Analysis</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#features" class="mobile-link">Features</a>
+  <a href="#how"      class="mobile-link">How it works</a>
+  <a href="#accuracy" class="mobile-link">Model</a>
+  <a href="analysis.html" class="mobile-link mobile-cta">Start Analysis</a>
+</div>
+
+<!-- ══════════════════════════
+     HERO
+══════════════════════════ -->
+<section class="hero" id="home">
+  <div class="hero-badge fade-up"><span class="dot"></span>CNN-powered · Live camera or photo upload</div>
+  <h1 class="fade-up">Spot the dent<br><em>before the buyer does.</em></h1>
+  <p class="hero-sub fade-up">Point a camera at any vehicle, or upload a photo, and DentScan AI tells you in seconds whether it's damaged or clean — trained on real inspection images, running on a convolutional neural network.</p>
+  <div class="hero-actions fade-up">
+    <a href="analysis.html" class="btn-primary btn-lg">Start Analysis</a>
+    <a href="#how" class="btn-ghost btn-lg">See how it works</a>
+  </div>
+
+  <!-- SIGNATURE VISUAL: live scan frame with sweeping detection line -->
+  <div class="hero-visual fade-up">
+    <div class="scan-wrap">
+      <div class="scan-bar">
+        <div class="scan-dots">
+          <div class="scan-dot" style="background:#e3e6ea"></div>
+          <div class="scan-dot" style="background:#e3e6ea"></div>
+          <div class="scan-dot" style="background:#e3e6ea"></div>
+        </div>
+        <div class="scan-label">camera-01 · live inspection feed</div>
+      </div>
+
+      <div class="scan-frame">
+        <span class="scan-car-icon">🚗</span>
+        <div class="scan-corner tl"></div>
+        <div class="scan-corner tr"></div>
+        <div class="scan-corner bl"></div>
+        <div class="scan-corner br"></div>
+        <div class="scan-line"></div>
+        <div class="scan-tag"><span class="sdot"></span> rear-quarter panel</div>
+      </div>
+
+      <div class="scan-results">
+        <div class="scan-row">
+          <span class="scan-region">Confidence</span>
+          <div class="scan-conf-track"><div class="scan-conf-fill dmg" style="width:91%"></div></div>
+          <span class="scan-pct">91%</span>
+        </div>
+      </div>
+
+      <div class="scan-verdict">
+        <span class="verdict-dot"></span>
+        Damage detected — <strong>scratch / dent</strong> identified on the rear-quarter panel
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-section">
+  <div class="ticker-track">
+    <div class="ticker-item"><span class="t-icon">▣</span> <strong>Live camera</strong> capture</div>
+    <div class="ticker-item"><span class="t-icon">▣</span> <strong>Photo upload</strong> mode</div>
+    <div class="ticker-item"><span class="t-icon">▣</span> <strong>CNN classifier</strong> — trained from scratch</div>
+    <div class="ticker-item"><span class="t-icon">▣</span> <strong>Instant confidence</strong> score</div>
+    <div class="ticker-item"><span class="t-icon">▣</span> <strong>Downloadable</strong> PDF report</div>
+    <div class="ticker-item"><span class="t-icon">▣</span> <strong>Runs locally</strong> — no cloud upload</div>
+    <!-- duplicate for infinite loop -->
+    <div class="ticker-item"><span class="t-icon">▣</span> <strong>Live camera</strong> capture</div>
+    <div class="ticker-item"><span class="t-icon">▣</span> <strong>Photo upload</strong> mode</div>
+    <div class="ticker-item"><span class="t-icon">▣</span> <strong>CNN classifier</strong> — trained from scratch</div>
+    <div class="ticker-item"><span class="t-icon">▣</span> <strong>Instant confidence</strong> score</div>
+    <div class="ticker-item"><span class="t-icon">▣</span> <strong>Downloadable</strong> PDF report</div>
+    <div class="ticker-item"><span class="t-icon">▣</span> <strong>Runs locally</strong> — no cloud upload</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════
+     FEATURES
+══════════════════════════ -->
+<section class="features-section" id="features">
+  <div class="section-head fade-up">
+    <span class="section-label">01 — What you get</span>
+    <h2 class="section-h2">Everything a quick<br>inspection needs</h2>
+    <p class="section-sub">No manual checklist. Point, capture, and know.</p>
+  </div>
+  <div class="features-grid fade-up">
+    <div class="feat-card">
+      <div class="feat-icon">▤</div>
+      <h4>Photo Upload</h4>
+      <p>Drop in an existing photo of a vehicle and get an instant verdict — damaged or clean.</p>
+    </div>
+    <div class="feat-card feat-featured">
+      <div class="feat-icon">◎</div>
+      <h4>Live Camera Scan</h4>
+      <p>Open your device camera and capture the vehicle in real time — no need to take a photo first.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">▲</div>
+      <h4>Confidence Score</h4>
+      <p>Every result comes with a model confidence percentage, not just a yes/no guess.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">▥</div>
+      <h4>Scan History</h4>
+      <p>Every capture during a session is logged so you can review past results at a glance.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">▦</div>
+      <h4>PDF Report</h4>
+      <p>Download a clean, one-page report of any scan — image, verdict, confidence, and timestamp.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">⬒</div>
+      <h4>Runs Locally</h4>
+      <p>The model runs on your own machine — no images are sent to a third-party cloud service.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════
+     HOW IT WORKS
+══════════════════════════ -->
+<section class="how-section" id="how">
+  <div class="how-inner">
+    <div class="fade-up">
+      <span class="section-label">02 — The flow</span>
+      <h2 class="section-h2">From camera to<br>verdict, in seconds</h2>
+      <p class="section-sub">Three steps, no manual inspection checklist.</p>
+      <div class="how-steps">
+        <div class="how-step">
+          <span class="step-num">01</span>
+          <div><h5>Choose your input</h5><p>Upload a photo, or open your live camera feed.</p></div>
+        </div>
+        <div class="how-step">
+          <span class="step-num">02</span>
+          <div><h5>Capture &amp; analyze</h5><p>The CNN classifies the image as damaged or normal.</p></div>
+        </div>
+        <div class="how-step">
+          <span class="step-num">03</span>
+          <div><h5>Review &amp; download</h5><p>See the confidence score and export a PDF report.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="how-visual fade-up">
+      <div class="mini-card">
+        <div class="mini-row"><span>Verdict</span><strong class="danger-text">Damaged</strong></div>
+        <div class="mini-row"><span>Confidence</span><strong>91%</strong></div>
+        <div class="mini-row"><span>Scan Time</span><strong>0.4s</strong></div>
+        <div class="mini-divider"></div>
+        <div class="mini-row small"><span>Front bumper — scan 3</span><span class="ok-text">Normal</span></div>
+        <div class="mini-row small"><span>Rear panel — scan 4</span><span class="danger-text">Damaged</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════
+     CTA
+══════════════════════════ -->
+<section class="cta-section">
+  <div class="cta-inner-card">
+    <h2>Stop guessing<br>if it's damaged.</h2>
+    <p>Run your first scan in under a minute — free, no account needed.</p>
+    <a href="analysis.html" class="btn-primary btn-lg" style="margin:0 auto">Start Analysis</a>
+    <div class="cta-fine">A university project demonstrating CNN-based image classification</div>
+  </div>
+</section>
+
+<!-- ══════════════════════════
+     FOOTER
+══════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">dentscan<span>.</span>ai</div>
+    <div class="footer-links">
+      <a href="#features">Features</a>
+      <a href="#how">How it works</a>
+      <a href="analysis.html">Start Analysis</a>
+    </div>
+    <div class="footer-copy">© 2026 DentScan AI · All rights reserved</div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
