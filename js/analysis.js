@@ -6,7 +6,7 @@
 (function () {
   'use strict';
 
-  /* Point this at your Flask backend (runs from backend.ipynb) */
+  /* Live backend, hosted on Render (see server.py) */
   const API_BASE = 'https://dentscan.onrender.com';
 
   let currentBlob = null;       // the image blob currently staged for analysis
@@ -60,12 +60,12 @@
     try {
       const res = await fetch(`${API_BASE}/health`, { method: 'GET' });
       if (res.ok) {
-        backendStatus.textContent = '✅ Connected to localhost:5050';
+        backendStatus.textContent = '✅ Connected to DentScan API';
       } else {
         throw new Error('bad status');
       }
     } catch (err) {
-      backendStatus.textContent = '⚠️ Backend not reachable. Run backend.ipynb first.';
+      backendStatus.textContent = '⚠️ Backend not reachable. It may be waking up (free tier) — try again in a moment.';
     }
   }
   checkBackend();
@@ -231,18 +231,18 @@
       renderResult(lastResult);
       addToHistory(lastResult);
       updateStats(lastResult);
-      backendStatus.textContent = '✅ Connected to localhost:5050';
+      backendStatus.textContent = '✅ Connected to DentScan API';
 
     } catch (err) {
       console.error('Predict error:', err);
-      backendStatus.textContent = '⚠️ Backend not reachable. Run backend.ipynb first.';
+      backendStatus.textContent = '⚠️ Backend not reachable. It may be waking up (free tier) — try again in a moment.';
       resultPanel.innerHTML = `
         <div class="result-panel">
           <div class="result-header dmg">
             <span class="result-badge">⚠️</span>
             <div>
               <div class="result-verdict">Could not reach backend</div>
-              <div class="result-sub">Make sure backend.ipynb is running (Run All) on localhost:5050</div>
+              <div class="result-sub">The API may be waking up from sleep (free tier), or a network/CORS issue occurred — check the browser console for details.</div>
             </div>
           </div>
         </div>`;
