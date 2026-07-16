@@ -19,7 +19,6 @@
   box-sizing:border-box;
 }
 .topnav-logo{
-  margin-left:auto;
   display:flex;align-items:center;gap:10px;
   text-decoration:none;color:var(--ink);
   flex-shrink:0;
@@ -37,6 +36,7 @@
 .topnav-name em{font-style:normal;color:var(--signal)}
 
 .topnav-back{
+  margin-left:auto;
   display:inline-flex;align-items:center;gap:6px;
   text-decoration:none;font-family:var(--body);font-size:13.5px;font-weight:700;
   color:var(--steel);padding:9px 16px;border-radius:9px;border:1px solid var(--line2);
