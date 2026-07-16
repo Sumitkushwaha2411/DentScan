@@ -7,7 +7,7 @@
   'use strict';
 
   /* Point this at your Flask backend (runs from backend.ipynb) */
-  const API_BASE = 'http://localhost:5050';
+  const API_BASE = 'https://dentscan.onrender.com';
 
   let currentBlob = null;       // the image blob currently staged for analysis
   let currentMode = 'upload';   // 'upload' | 'camera'
